@@ -70,25 +70,29 @@ def scrape_parks(parks_list):
 
         ### Populating  Document
         document.add_heading(parkname, level=1)
+        document.add_heading('Introduction', level=2)
         for i in park_intro:
             document.add_paragraph(i) #, style='ListBullet')
 
+        document.add_heading('Camping in '+parkname, level=2)
         for i in park_camping:
             document.add_paragraph(i)
 
+        document.add_heading('Things to do in '+parkname, level=2)
         for i in park_thingstodo:
             document.add_paragraph(i)
 
+        document.add_heading('Amenities in '+parkname, level=2)
         for i in park_amenities:
             document.add_paragraph(i)
 
         document.add_paragraph('          ')
     #    document.add_page_break()
 
-    document.save('OntarioParks.docx')
+    document.save('Camp Grounds in Ontario.docx')
 
 ##
 if __name__ == "__main__":
     parks_list = parks_information(home_html)
     scrape_parks(parks_list)
-    print '## Open the document: OntarioParks.docx ##'
+    print '## Open the document: Camp Grounds in Ontario.docx ##'
